@@ -3,7 +3,7 @@
 //  No Touchy
 //
 //  Created by Lukas Wegryn on 3/21/20.
-//  Copyright © 2020 Pensive Seucirty. All rights reserved.
+//  Copyright © 2020 Pensive Security. All rights reserved.
 //
 
 import WatchKit
@@ -16,10 +16,7 @@ import CoreFoundation
 class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntimeSessionDelegate {
     let motionManager = CMMotionManager()
     var timer: Timer!
-    var nTimer: Timer!
     var showNotification = true;
-    var session: HKWorkoutSession?
-    var isWorkoutRunning = false
     
     var currentAlert = ""
     
@@ -32,12 +29,6 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
     @IBOutlet weak var enableSwitch: WKInterfaceSwitch!
     @IBOutlet weak var diagnosticGroup: WKInterfaceGroup!
     
-    
-    
-    /*var thresholds = ["lr": [-0.8, -0.1],
-    "ll": [],
-    "rl": [-0.8,],
-    "rr": []]*/
     
     @objc func removeAlert(uuid: String) {
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [uuid])
@@ -64,7 +55,7 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
         let sound = UNNotificationSound.default
         let uuidString = UUID().uuidString
         content.title = "No Touch"
-        content.body = "Your No Touch session is ending. Please re-enable in the app if necessary."
+        content.body = "Your No Touch session is ending. Please start it again in the app if you need more time."
         content.sound = sound
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (0.1), repeats: false)
         let request = UNNotificationRequest(identifier: uuidString,
@@ -76,7 +67,6 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
         super.awake(withContext: context)
         motionManager.startAccelerometerUpdates()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(AccelerometerInterfaceController.getAccelerometerData), userInfo: nil, repeats: true)
-        /*timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(AccelerometerInterfaceController.removeAlerts), userInfo: nil, repeats: true)*/
 
         acceleration_x.setText(String(1.0))
         acceleration_y.setText(String(1.0))
@@ -157,39 +147,19 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
             acceleration_z.setText(String(acc_z))
         
             if(isFaceTouching(acceleration: accelerometerData.acceleration)){
-                //WKInterfaceDevice.current().play(.click)
                 WKInterfaceDevice.current().play(.notification)
                 if(showNotification){
-                    //WKInterfaceDevice.current().play(.notification)
-                    //removeAlerts()
                     if(currentAlert != ""){
                         removeAlert(uuid: currentAlert)
                     }
                     currentAlert = showAlert()
-                    //timeSinceLastFacetouchStart = DispatchTime.now()
                     showNotification = false
                 }
             } else {
-                //WKInterfaceDevice.current().play(.stop)
                 showNotification = true
-                //let timeNow = DispatchTime.now().uptimeNanoseconds
-                //let nanoTime = timeSinceLastFacetouchStart.uptimeNanoseconds - timeNow
-                //let secondsElapsed = Double(nanoTime) / 1_000_000_000
-                //if(secondsElapsed > 5 && secondsElapsed < 10){
-                  //  removeAlerts()
-                //}
             }
 
         }
-        /*if let gyroData = motionManager.gyroData {
-            print(gyroData)
-        }
-        if let magnetometerData = motionManager.magnetometerData {
-            print(magnetometerData)
-        }
-        if let deviceMotion = motionManager.deviceMotion {
-            print(deviceMotion)
-        }*/
     }
     
     
@@ -229,30 +199,4 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
         // Also handle errors here.
         enableSwitch.setOn(false)
     }
-    
-    /*@IBAction func toggleWorkout(_ value: Bool) {
-        if !value {
-            session!.end()
-            isWorkoutRunning = false
-        } else {
-            // Begin workout.
-            isWorkoutRunning = true
-            
-            // Clear the local Active Energy Burned quantity when beginning a workout session.
-            
-            // An indoor walk workout session. There are other activity and location types available to you.
-            let configuration = HKWorkoutConfiguration()
-            configuration.activityType = .mindAndBody
-            let healthStore = HKHealthStore()
-            
-            do {
-                session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
-                session!.startActivity(with: Date())
-            } catch {
-                dismiss()
-                return
-            }
-        
-        }
-    }*/
 }
