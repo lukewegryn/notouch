@@ -11,11 +11,13 @@ import Foundation
 import CoreMotion
 import UserNotifications
 import HealthKit
+import CoreFoundation
 
 class AccelerometerInterfaceController: WKInterfaceController {
     
     let motionManager = CMMotionManager()
     var timer: Timer!
+    var nTimer: Timer!
     var showNotification = true;
     var session: HKWorkoutSession? // = HKWorkoutSession()
     //var currentWorkoutSession: HKWorkoutSession?
@@ -24,6 +26,15 @@ class AccelerometerInterfaceController: WKInterfaceController {
     @IBOutlet weak var acceleration_x: WKInterfaceLabel!
     @IBOutlet weak var acceleration_y: WKInterfaceLabel!
     @IBOutlet weak var acceleration_z: WKInterfaceLabel!
+    
+    /*var thresholds = ["lr": [-0.8, -0.1],
+    "ll": [],
+    "rl": [-0.8,],
+    "rr": []]*/
+    
+    @objc func removeAlerts() {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    }
     
     func showAlert() {
         let center = UNUserNotificationCenter.current()
@@ -43,6 +54,7 @@ class AccelerometerInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         motionManager.startAccelerometerUpdates()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(AccelerometerInterfaceController.getAccelerometerData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(AccelerometerInterfaceController.removeAlerts), userInfo: nil, repeats: true)
 
         acceleration_x.setText(String(1.0))
         acceleration_y.setText(String(1.0))
@@ -72,6 +84,47 @@ class AccelerometerInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
+    func isFaceTouching(acceleration: CMAcceleration) -> Bool{
+        //Wrist   |    Crown
+        // L      |      R         acc_x < -0.8 && acc_y > -0.1
+        // R      |      L         acc_x < -0.8 && acc_y < -0.1
+        // L      |      L
+        // R      |      R
+        
+        let wrist = WKInterfaceDevice.current().wristLocation
+        let crown = WKInterfaceDevice.current().crownOrientation
+        let acc_x = acceleration.x
+        let acc_y = acceleration.y
+        
+        if (wrist == .left && crown == .right){
+            if (acc_x < -0.8 && acc_y > -0.1){
+                return true
+            }
+                return false
+        } else if (wrist == .right && crown == .left){
+            if (acc_x < -0.8 && acc_y < -0.1){
+                return true
+            }
+                return false
+        } else if (wrist == .left && crown == .left){
+            if (acc_x > 0.8 && acc_y < -0.1){
+                return true
+            }
+                return false
+        } else if (wrist == .right && crown == .right){
+            if (acc_x > 0.8 && acc_y > 0.1){
+                return true
+            }
+                return false
+        }
+        return false
+    
+    }
+    
+    func clearOldAlerts(){
+        
+    }
+    
     @objc func getAccelerometerData() {
         if let accelerometerData = motionManager.accelerometerData {
             let acc_x = accelerometerData.acceleration.x
@@ -81,21 +134,26 @@ class AccelerometerInterfaceController: WKInterfaceController {
             acceleration_x.setText(String(acc_x))
             acceleration_y.setText(String(acc_y))
             acceleration_z.setText(String(acc_z))
-            
-            //if(acc_x < -0.85 && acc_y > 0.05){ //&& abs(acc_z) < 0.10){
-            //if(acc_x < -0.5 && acc_y > 0.05){ //&& abs(acc_z) < 0.10){
-            //if(acc_x < -0.2 && acc_y > 0.05){ //&& abs(acc_z) < 0.10){
-            if(acc_x < -0.8 && acc_y > -0.1 ){ //&& acc_z > -0.6){ //&& abs(acc_z) < 0.10){
+        
+            if(isFaceTouching(acceleration: accelerometerData.acceleration)){
                 //WKInterfaceDevice.current().play(.click)
                 WKInterfaceDevice.current().play(.notification)
                 if(showNotification){
                     //WKInterfaceDevice.current().play(.notification)
+                    //removeAlerts()
                     showAlert()
+                    //timeSinceLastFacetouchStart = DispatchTime.now()
                     showNotification = false
                 }
             } else {
                 //WKInterfaceDevice.current().play(.stop)
                 showNotification = true
+                //let timeNow = DispatchTime.now().uptimeNanoseconds
+                //let nanoTime = timeSinceLastFacetouchStart.uptimeNanoseconds - timeNow
+                //let secondsElapsed = Double(nanoTime) / 1_000_000_000
+                //if(secondsElapsed > 5 && secondsElapsed < 10){
+                  //  removeAlerts()
+                //}
             }
 
         }
@@ -124,6 +182,7 @@ class AccelerometerInterfaceController: WKInterfaceController {
             
             // An indoor walk workout session. There are other activity and location types available to you.
             let configuration = HKWorkoutConfiguration()
+            configuration.activityType = .mindAndBody
             let healthStore = HKHealthStore()
             
             do {
