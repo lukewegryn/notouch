@@ -13,7 +13,7 @@ import UserNotifications
 import HealthKit
 import CoreFoundation
 
-class AccelerometerInterfaceController: WKInterfaceController {
+class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntimeSessionDelegate {
     let motionManager = CMMotionManager()
     var timer: Timer!
     var nTimer: Timer!
@@ -30,6 +30,9 @@ class AccelerometerInterfaceController: WKInterfaceController {
     @IBOutlet weak var acceleration_y: WKInterfaceLabel!
     @IBOutlet weak var acceleration_z: WKInterfaceLabel!
     @IBOutlet weak var enableSwitch: WKInterfaceSwitch!
+    @IBOutlet weak var diagnosticGroup: WKInterfaceGroup!
+    
+    
     
     /*var thresholds = ["lr": [-0.8, -0.1],
     "ll": [],
@@ -190,6 +193,14 @@ class AccelerometerInterfaceController: WKInterfaceController {
     }
     
     
+    @IBAction func toggleDiagnostic(_ value: Bool) {
+            if !value {
+                diagnosticGroup.setHidden(true)
+            } else {
+                diagnosticGroup.setHidden(false)
+            }
+        }
+
     @IBAction func toggleSession(_ value: Bool) {
         selfCareSession = WKExtendedRuntimeSession()
         if !value {
@@ -211,7 +222,6 @@ class AccelerometerInterfaceController: WKInterfaceController {
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         // Finish and clean up any tasks before the session ends.
         showSessionEndingAlert()
-        
     }
         
     func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {

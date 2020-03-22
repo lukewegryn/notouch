@@ -12,52 +12,67 @@
                 <controller identifier="Accelerometer" hidesWhenLoading="NO" id="ekk-Ib-ZpP" customClass="AccelerometerInterfaceController" customModule="No_Touch_WatchKit_Extension">
                     <items>
                         <label alignment="left" text="No Touch" id="PsW-v2-eWa"/>
-                        <label alignment="left" text="Accelerometer" id="21J-Jk-qin"/>
-                        <group width="1" alignment="left" id="PkF-a6-BYB">
-                            <items>
-                                <label alignment="left" text="X:" id="Ok0-eV-etz">
-                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </label>
-                                <label alignment="left" text="x_value" id="wZt-4i-GxU">
-                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </label>
-                            </items>
-                        </group>
-                        <group width="1" alignment="left" id="9SM-g5-xDs">
-                            <items>
-                                <label alignment="left" text="Y:" id="Xf6-at-dj4">
-                                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </label>
-                                <label alignment="left" text="y_value" id="Pav-dq-5AB">
-                                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </label>
-                            </items>
-                        </group>
-                        <group width="1" alignment="left" id="OtX-fe-Dql">
-                            <items>
-                                <label alignment="left" text="Z:" id="dUo-ht-2Bw">
-                                    <color key="textColor" red="0.99487937179999997" green="0.80794001019999995" blue="0.01304672525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </label>
-                                <label alignment="left" text="z_value" id="i9Y-Ov-j1b">
-                                    <color key="textColor" red="0.99487937179999997" green="0.80794001019999995" blue="0.01304672525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </label>
-                            </items>
-                        </group>
-                        <switch width="1" alignment="left" title="Enable" id="whU-cI-9RM">
+                        <switch width="1" alignment="left" title="Start" id="whU-cI-9RM">
                             <connections>
                                 <action selector="toggleSession:" destination="ekk-Ib-ZpP" id="ldy-kz-EVC"/>
                             </connections>
                         </switch>
+                        <label height="40" alignment="left" text="Once started, No Touch will run in the background for 1 hour." numberOfLines="3" id="m8b-1v-Jyf">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="10"/>
+                        </label>
+                        <label alignment="left" id="ZYt-k5-UIC"/>
+                        <separator alignment="left" id="Uh6-fA-b1e"/>
+                        <switch width="1" alignment="left" title="Diagnostic" id="K7L-RM-LGt">
+                            <fontDescription key="font" type="system" pointSize="14"/>
+                            <connections>
+                                <action selector="toggleDiagnostic:" destination="ekk-Ib-ZpP" id="Pau-Fe-Xkl"/>
+                            </connections>
+                        </switch>
+                        <group width="1" alignment="left" hidden="YES" layout="vertical" id="vPK-TU-doh" userLabel="Diagnostic Group">
+                            <items>
+                                <group width="1" alignment="left" id="PkF-a6-BYB">
+                                    <items>
+                                        <label alignment="left" text="X:" id="Ok0-eV-etz">
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                        <label alignment="left" text="x_value" id="wZt-4i-GxU">
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="9SM-g5-xDs">
+                                    <items>
+                                        <label alignment="left" text="Y:" id="Xf6-at-dj4">
+                                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                        <label alignment="left" text="y_value" id="Pav-dq-5AB">
+                                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="OtX-fe-Dql">
+                                    <items>
+                                        <label alignment="left" text="Z:" id="dUo-ht-2Bw">
+                                            <color key="textColor" red="0.99487937179999997" green="0.80794001019999995" blue="0.01304672525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                        <label alignment="left" text="z_value" id="i9Y-Ov-j1b">
+                                            <color key="textColor" red="0.99487937179999997" green="0.80794001019999995" blue="0.01304672525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="acceleration_x" destination="wZt-4i-GxU" id="TcT-cd-bvN"/>
                         <outlet property="acceleration_y" destination="Pav-dq-5AB" id="BFq-IH-DxK"/>
                         <outlet property="acceleration_z" destination="i9Y-Ov-j1b" id="mmZ-eH-LMt"/>
+                        <outlet property="diagnosticGroup" destination="vPK-TU-doh" id="9DA-QW-cDF"/>
                         <outlet property="enableSwitch" destination="whU-cI-9RM" id="oI4-hd-uuP"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="488" y="122.5"/>
+            <point key="canvasLocation" x="488" y="136"/>
         </scene>
     </scenes>
 </document>
