@@ -435,7 +435,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "No Touch WatchKit Extension/No Touch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"No Touch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = TH9H894589;
 				ENABLE_PREVIEWS = YES;
@@ -462,7 +462,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "No Touch WatchKit Extension/No Touch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"No Touch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = TH9H894589;
 				ENABLE_PREVIEWS = YES;
@@ -489,7 +489,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = TH9H894589;
 				IBSC_MODULE = No_Touch_WatchKit_Extension;
 				INFOPLIST_FILE = "No Touch WatchKit App/Info.plist";
@@ -510,7 +510,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = TH9H894589;
 				IBSC_MODULE = No_Touch_WatchKit_Extension;
 				INFOPLIST_FILE = "No Touch WatchKit App/Info.plist";
@@ -529,7 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = TH9H894589;
 				INFOPLIST_FILE = Info.plist;
 				MARKETING_VERSION = 1.0;
@@ -543,7 +543,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = TH9H894589;
 				INFOPLIST_FILE = Info.plist;
 				MARKETING_VERSION = 1.0;

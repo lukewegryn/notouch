@@ -110,28 +110,31 @@ class AccelerometerInterfaceController: WKInterfaceController {
         // L      |      L
         // R      |      R
         
+        //let x_thresh = 0.8
+        let x_thresh = 0.87
+        let y_thresh = 0.1
         let wrist = WKInterfaceDevice.current().wristLocation
         let crown = WKInterfaceDevice.current().crownOrientation
         let acc_x = acceleration.x
         let acc_y = acceleration.y
         
         if (wrist == .left && crown == .right){
-            if (acc_x < -0.8 && acc_y > -0.1){
+            if (acc_x < -x_thresh && acc_y > -y_thresh){
                 return true
             }
                 return false
         } else if (wrist == .right && crown == .left){
-            if (acc_x < -0.8 && acc_y < -0.1){
+            if (acc_x < -x_thresh && acc_y < -y_thresh){
                 return true
             }
                 return false
         } else if (wrist == .left && crown == .left){
-            if (acc_x > 0.8 && acc_y < -0.1){
+            if (acc_x > x_thresh && acc_y < -y_thresh){
                 return true
             }
                 return false
         } else if (wrist == .right && crown == .right){
-            if (acc_x > 0.8 && acc_y > 0.1){
+            if (acc_x > x_thresh && acc_y > y_thresh){
                 return true
             }
                 return false
