@@ -38,7 +38,7 @@
 	<array/>
 	<key>WKBackgroundModes</key>
 	<array>
-		<string>mindfulness</string>
+		<string>physical-therapy</string>
 		<string>workout-processing</string>
 	</array>
 	<key>WKExtensionDelegateClassName</key>

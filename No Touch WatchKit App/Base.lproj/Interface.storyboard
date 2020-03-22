@@ -45,7 +45,7 @@
                         </group>
                         <switch width="1" alignment="left" title="Enable" id="whU-cI-9RM">
                             <connections>
-                                <action selector="toggleWorkout:" destination="ekk-Ib-ZpP" id="wJ5-11-bfq"/>
+                                <action selector="toggleSession:" destination="ekk-Ib-ZpP" id="ldy-kz-EVC"/>
                             </connections>
                         </switch>
                     </items>
@@ -53,6 +53,7 @@
                         <outlet property="acceleration_x" destination="wZt-4i-GxU" id="TcT-cd-bvN"/>
                         <outlet property="acceleration_y" destination="Pav-dq-5AB" id="BFq-IH-DxK"/>
                         <outlet property="acceleration_z" destination="i9Y-Ov-j1b" id="mmZ-eH-LMt"/>
+                        <outlet property="enableSwitch" destination="whU-cI-9RM" id="oI4-hd-uuP"/>
                     </connections>
                 </controller>
             </objects>

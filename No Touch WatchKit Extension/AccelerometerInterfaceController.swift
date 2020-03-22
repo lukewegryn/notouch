@@ -14,29 +14,33 @@ import HealthKit
 import CoreFoundation
 
 class AccelerometerInterfaceController: WKInterfaceController {
-    
     let motionManager = CMMotionManager()
     var timer: Timer!
     var nTimer: Timer!
     var showNotification = true;
-    var session: HKWorkoutSession? // = HKWorkoutSession()
-    //var currentWorkoutSession: HKWorkoutSession?
+    var session: HKWorkoutSession?
     var isWorkoutRunning = false
+    
+    var currentAlert = ""
+    
+    var selfCareSession: WKExtendedRuntimeSession?
+    var isSelfCareRunning = false
     
     @IBOutlet weak var acceleration_x: WKInterfaceLabel!
     @IBOutlet weak var acceleration_y: WKInterfaceLabel!
     @IBOutlet weak var acceleration_z: WKInterfaceLabel!
+    @IBOutlet weak var enableSwitch: WKInterfaceSwitch!
     
     /*var thresholds = ["lr": [-0.8, -0.1],
     "ll": [],
     "rl": [-0.8,],
     "rr": []]*/
     
-    @objc func removeAlerts() {
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    @objc func removeAlert(uuid: String) {
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [uuid])
     }
     
-    func showAlert() {
+    func showAlert() -> String {
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
         let sound = UNNotificationSound.default
@@ -48,13 +52,28 @@ class AccelerometerInterfaceController: WKInterfaceController {
         let request = UNNotificationRequest(identifier: uuidString,
                     content: content, trigger: trigger)
         center.add(request)
+        return uuidString
+    }
+    
+    func showSessionEndingAlert(){
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        let sound = UNNotificationSound.default
+        let uuidString = UUID().uuidString
+        content.title = "No Touch"
+        content.body = "Your No Touch session is ending. Please re-enable in the app if necessary."
+        content.sound = sound
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (0.1), repeats: false)
+        let request = UNNotificationRequest(identifier: uuidString,
+                    content: content, trigger: trigger)
+        center.add(request)
     }
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         motionManager.startAccelerometerUpdates()
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(AccelerometerInterfaceController.getAccelerometerData), userInfo: nil, repeats: true)
-        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(AccelerometerInterfaceController.removeAlerts), userInfo: nil, repeats: true)
+        /*timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(AccelerometerInterfaceController.removeAlerts), userInfo: nil, repeats: true)*/
 
         acceleration_x.setText(String(1.0))
         acceleration_y.setText(String(1.0))
@@ -121,10 +140,6 @@ class AccelerometerInterfaceController: WKInterfaceController {
     
     }
     
-    func clearOldAlerts(){
-        
-    }
-    
     @objc func getAccelerometerData() {
         if let accelerometerData = motionManager.accelerometerData {
             let acc_x = accelerometerData.acceleration.x
@@ -141,7 +156,10 @@ class AccelerometerInterfaceController: WKInterfaceController {
                 if(showNotification){
                     //WKInterfaceDevice.current().play(.notification)
                     //removeAlerts()
-                    showAlert()
+                    if(currentAlert != ""){
+                        removeAlert(uuid: currentAlert)
+                    }
+                    currentAlert = showAlert()
                     //timeSinceLastFacetouchStart = DispatchTime.now()
                     showNotification = false
                 }
@@ -169,8 +187,37 @@ class AccelerometerInterfaceController: WKInterfaceController {
     }
     
     
+    @IBAction func toggleSession(_ value: Bool) {
+        selfCareSession = WKExtendedRuntimeSession()
+        if !value {
+            selfCareSession!.invalidate()
+            isSelfCareRunning = false
+        } else {
+            // Begin session.
+            isSelfCareRunning = true
+            selfCareSession!.start()
+        
+        }
+    }
+
+
+    func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        // Track when your session starts.
+    }
+
+    func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        // Finish and clean up any tasks before the session ends.
+        showSessionEndingAlert()
+        
+    }
+        
+    func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
+        // Track when your session ends.
+        // Also handle errors here.
+        enableSwitch.setOn(false)
+    }
     
-    @IBAction func toggleWorkout(_ value: Bool) {
+    /*@IBAction func toggleWorkout(_ value: Bool) {
         if !value {
             session!.end()
             isWorkoutRunning = false
@@ -194,5 +241,5 @@ class AccelerometerInterfaceController: WKInterfaceController {
             }
         
         }
-    }
+    }*/
 }
