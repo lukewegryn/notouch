@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A3DB7FCF2427204000A715CA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3E64D57242714EC0048BCB9 /* Interface.storyboard */; };
+		A3DB7FD22427209700A715CA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E64D6A242714EC0048BCB9 /* ExtensionDelegate.swift */; };
+		A3DB7FD6242721B500A715CA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DB7FD5242721B500A715CA /* HealthKit.framework */; };
+		A3DB7FD82427230C00A715CA /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = A3DB7FD72427230C00A715CA /* AppIcon.appiconset */; };
+		A3DB7FD92427230C00A715CA /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = A3DB7FD72427230C00A715CA /* AppIcon.appiconset */; };
+		A3DB7FDA2427230C00A715CA /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = A3DB7FD72427230C00A715CA /* AppIcon.appiconset */; };
+		A3E64D53242714EC0048BCB9 /* No Touch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A3E64D52242714EC0048BCB9 /* No Touch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A3E64D5B242714EC0048BCB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3E64D5A242714EC0048BCB9 /* Assets.xcassets */; };
+		A3E64D62242714EC0048BCB9 /* No Touch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3E64D61242714EC0048BCB9 /* No Touch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A3E64D6D242714ED0048BCB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3E64D6C242714ED0048BCB9 /* Assets.xcassets */; };
+		A3E64D70242714ED0048BCB9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3E64D6F242714ED0048BCB9 /* Preview Assets.xcassets */; };
+		A3E64D82242716B20048BCB9 /* AccelerometerInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E64D81242716B20048BCB9 /* AccelerometerInterfaceController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3E64D54242714EC0048BCB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3E64D48242714EB0048BCB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3E64D51242714EC0048BCB9;
+			remoteInfo = "No Touch WatchKit App";
+		};
+		A3E64D63242714EC0048BCB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3E64D48242714EB0048BCB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3E64D60242714EC0048BCB9;
+			remoteInfo = "No Touch WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3E64D77242714ED0048BCB9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A3E64D62242714EC0048BCB9 /* No Touch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3E64D7B242714ED0048BCB9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				A3E64D53242714EC0048BCB9 /* No Touch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A3DB7FD3242721B500A715CA /* No Touch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "No Touch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		A3DB7FD5242721B500A715CA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		A3DB7FD72427230C00A715CA /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
+		A3E64D4E242714EB0048BCB9 /* No Touch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "No Touch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3E64D52242714EC0048BCB9 /* No Touch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "No Touch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3E64D58242714EC0048BCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A3E64D5A242714EC0048BCB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3E64D5C242714EC0048BCB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3E64D61242714EC0048BCB9 /* No Touch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "No Touch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3E64D6A242714EC0048BCB9 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		A3E64D6C242714ED0048BCB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3E64D6F242714ED0048BCB9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A3E64D71242714ED0048BCB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3E64D81242716B20048BCB9 /* AccelerometerInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerInterfaceController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3E64D5E242714EC0048BCB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3DB7FD6242721B500A715CA /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3DB7FD4242721B500A715CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3DB7FD5242721B500A715CA /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3E64D47242714EB0048BCB9 = {
+			isa = PBXGroup;
+			children = (
+				A3DB7FD72427230C00A715CA /* AppIcon.appiconset */,
+				A3E64D56242714EC0048BCB9 /* No Touch WatchKit App */,
+				A3E64D65242714EC0048BCB9 /* No Touch WatchKit Extension */,
+				A3E64D4F242714EB0048BCB9 /* Products */,
+				A3DB7FD4242721B500A715CA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A3E64D4F242714EB0048BCB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3E64D4E242714EB0048BCB9 /* No Touch.app */,
+				A3E64D52242714EC0048BCB9 /* No Touch WatchKit App.app */,
+				A3E64D61242714EC0048BCB9 /* No Touch WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3E64D56242714EC0048BCB9 /* No Touch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				A3E64D57242714EC0048BCB9 /* Interface.storyboard */,
+				A3E64D5A242714EC0048BCB9 /* Assets.xcassets */,
+				A3E64D5C242714EC0048BCB9 /* Info.plist */,
+			);
+			path = "No Touch WatchKit App";
+			sourceTree = "<group>";
+		};
+		A3E64D65242714EC0048BCB9 /* No Touch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A3DB7FD3242721B500A715CA /* No Touch WatchKit Extension.entitlements */,
+				A3E64D81242716B20048BCB9 /* AccelerometerInterfaceController.swift */,
+				A3E64D6A242714EC0048BCB9 /* ExtensionDelegate.swift */,
+				A3E64D6C242714ED0048BCB9 /* Assets.xcassets */,
+				A3E64D71242714ED0048BCB9 /* Info.plist */,
+				A3E64D6E242714ED0048BCB9 /* Preview Content */,
+			);
+			path = "No Touch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		A3E64D6E242714ED0048BCB9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A3E64D6F242714ED0048BCB9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3E64D4D242714EB0048BCB9 /* No Touch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3E64D7C242714ED0048BCB9 /* Build configuration list for PBXNativeTarget "No Touch" */;
+			buildPhases = (
+				A3E64D4C242714EB0048BCB9 /* Resources */,
+				A3E64D7B242714ED0048BCB9 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3E64D55242714EC0048BCB9 /* PBXTargetDependency */,
+			);
+			name = "No Touch";
+			productName = "No Touch";
+			productReference = A3E64D4E242714EB0048BCB9 /* No Touch.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		A3E64D51242714EC0048BCB9 /* No Touch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3E64D78242714ED0048BCB9 /* Build configuration list for PBXNativeTarget "No Touch WatchKit App" */;
+			buildPhases = (
+				A3E64D50242714EC0048BCB9 /* Resources */,
+				A3E64D77242714ED0048BCB9 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3E64D64242714EC0048BCB9 /* PBXTargetDependency */,
+			);
+			name = "No Touch WatchKit App";
+			productName = "No Touch WatchKit App";
+			productReference = A3E64D52242714EC0048BCB9 /* No Touch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		A3E64D60242714EC0048BCB9 /* No Touch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3E64D74242714ED0048BCB9 /* Build configuration list for PBXNativeTarget "No Touch WatchKit Extension" */;
+			buildPhases = (
+				A3E64D5D242714EC0048BCB9 /* Sources */,
+				A3E64D5E242714EC0048BCB9 /* Frameworks */,
+				A3E64D5F242714EC0048BCB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "No Touch WatchKit Extension";
+			productName = "No Touch WatchKit Extension";
+			productReference = A3E64D61242714EC0048BCB9 /* No Touch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3E64D48242714EB0048BCB9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Pensive Security";
+				TargetAttributes = {
+					A3E64D4D242714EB0048BCB9 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					A3E64D51242714EC0048BCB9 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					A3E64D60242714EC0048BCB9 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A3E64D4B242714EB0048BCB9 /* Build configuration list for PBXProject "No Touch" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A3E64D47242714EB0048BCB9;
+			productRefGroup = A3E64D4F242714EB0048BCB9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3E64D4D242714EB0048BCB9 /* No Touch */,
+				A3E64D51242714EC0048BCB9 /* No Touch WatchKit App */,
+				A3E64D60242714EC0048BCB9 /* No Touch WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3E64D4C242714EB0048BCB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3DB7FD82427230C00A715CA /* AppIcon.appiconset in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3E64D50242714EC0048BCB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3DB7FCF2427204000A715CA /* Interface.storyboard in Resources */,
+				A3DB7FD92427230C00A715CA /* AppIcon.appiconset in Resources */,
+				A3E64D5B242714EC0048BCB9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3E64D5F242714EC0048BCB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3E64D70242714ED0048BCB9 /* Preview Assets.xcassets in Resources */,
+				A3DB7FDA2427230C00A715CA /* AppIcon.appiconset in Resources */,
+				A3E64D6D242714ED0048BCB9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3E64D5D242714EC0048BCB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3DB7FD22427209700A715CA /* ExtensionDelegate.swift in Sources */,
+				A3E64D82242716B20048BCB9 /* AccelerometerInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3E64D55242714EC0048BCB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3E64D51242714EC0048BCB9 /* No Touch WatchKit App */;
+			targetProxy = A3E64D54242714EC0048BCB9 /* PBXContainerItemProxy */;
+		};
+		A3E64D64242714EC0048BCB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3E64D60242714EC0048BCB9 /* No Touch WatchKit Extension */;
+			targetProxy = A3E64D63242714EC0048BCB9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A3E64D57242714EC0048BCB9 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3E64D58242714EC0048BCB9 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A3E64D72242714ED0048BCB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A3E64D73242714ED0048BCB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A3E64D75242714ED0048BCB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "No Touch WatchKit Extension/No Touch WatchKit Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"No Touch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = TH9H894589;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "No Touch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "No Touch WatchKit Extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		A3E64D76242714ED0048BCB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "No Touch WatchKit Extension/No Touch WatchKit Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"No Touch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = TH9H894589;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "No Touch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "No Touch WatchKit Extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		A3E64D79242714ED0048BCB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TH9H894589;
+				IBSC_MODULE = No_Touch_WatchKit_Extension;
+				INFOPLIST_FILE = "No Touch WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch.watchkitapp";
+				PRODUCT_NAME = "No Touch WatchKit App";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		A3E64D7A242714ED0048BCB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TH9H894589;
+				IBSC_MODULE = No_Touch_WatchKit_Extension;
+				INFOPLIST_FILE = "No Touch WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch.watchkitapp";
+				PRODUCT_NAME = "No Touch WatchKit App";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		A3E64D7D242714ED0048BCB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TH9H894589;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A3E64D7E242714ED0048BCB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TH9H894589;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3E64D4B242714EB0048BCB9 /* Build configuration list for PBXProject "No Touch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3E64D72242714ED0048BCB9 /* Debug */,
+				A3E64D73242714ED0048BCB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3E64D74242714ED0048BCB9 /* Build configuration list for PBXNativeTarget "No Touch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3E64D75242714ED0048BCB9 /* Debug */,
+				A3E64D76242714ED0048BCB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3E64D78242714ED0048BCB9 /* Build configuration list for PBXNativeTarget "No Touch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3E64D79242714ED0048BCB9 /* Debug */,
+				A3E64D7A242714ED0048BCB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3E64D7C242714ED0048BCB9 /* Build configuration list for PBXNativeTarget "No Touch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3E64D7D242714ED0048BCB9 /* Debug */,
+				A3E64D7E242714ED0048BCB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3E64D48242714EB0048BCB9 /* Project object */;
+}
