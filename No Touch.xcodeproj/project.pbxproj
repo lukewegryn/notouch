@@ -67,6 +67,7 @@
 		A3DB7FD3242721B500A715CA /* No Touch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "No Touch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		A3DB7FD5242721B500A715CA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		A3DB7FD72427230C00A715CA /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
+		A3DB7FDB24272D4700A715CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		A3E64D4E242714EB0048BCB9 /* No Touch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "No Touch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E64D52242714EC0048BCB9 /* No Touch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "No Touch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E64D58242714EC0048BCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		A3E64D47242714EB0048BCB9 = {
 			isa = PBXGroup;
 			children = (
+				A3DB7FDB24272D4700A715CA /* Info.plist */,
 				A3DB7FD72427230C00A715CA /* AppIcon.appiconset */,
 				A3E64D56242714EC0048BCB9 /* No Touch WatchKit App */,
 				A3E64D65242714EC0048BCB9 /* No Touch WatchKit Extension */,
@@ -433,6 +435,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "No Touch WatchKit Extension/No Touch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"No Touch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = TH9H894589;
 				ENABLE_PREVIEWS = YES;
@@ -442,6 +445,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "No Touch WatchKit Extension";
 				SDKROOT = watchos;
@@ -458,6 +462,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "No Touch WatchKit Extension/No Touch WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"No Touch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = TH9H894589;
 				ENABLE_PREVIEWS = YES;
@@ -467,6 +472,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "No Touch WatchKit Extension";
 				SDKROOT = watchos;
@@ -483,9 +489,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = TH9H894589;
 				IBSC_MODULE = No_Touch_WatchKit_Extension;
 				INFOPLIST_FILE = "No Touch WatchKit App/Info.plist";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch.watchkitapp";
 				PRODUCT_NAME = "No Touch WatchKit App";
 				SDKROOT = watchos;
@@ -502,9 +510,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = TH9H894589;
 				IBSC_MODULE = No_Touch_WatchKit_Extension;
 				INFOPLIST_FILE = "No Touch WatchKit App/Info.plist";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch.watchkitapp";
 				PRODUCT_NAME = "No Touch WatchKit App";
 				SDKROOT = watchos;
@@ -519,8 +529,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = TH9H894589;
+				INFOPLIST_FILE = Info.plist;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,8 +543,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = TH9H894589;
+				INFOPLIST_FILE = Info.plist;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Pensive-Security.No-Touch";
 				PRODUCT_NAME = "$(TARGET_NAME)";

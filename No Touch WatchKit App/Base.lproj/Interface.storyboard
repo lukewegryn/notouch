@@ -11,6 +11,7 @@
             <objects>
                 <controller identifier="Accelerometer" hidesWhenLoading="NO" id="ekk-Ib-ZpP" customClass="AccelerometerInterfaceController" customModule="No_Touch_WatchKit_Extension">
                     <items>
+                        <label alignment="left" text="No Touch" id="PsW-v2-eWa"/>
                         <label alignment="left" text="Accelerometer" id="21J-Jk-qin"/>
                         <group width="1" alignment="left" id="PkF-a6-BYB">
                             <items>
