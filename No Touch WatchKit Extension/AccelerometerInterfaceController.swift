@@ -41,7 +41,7 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
         let uuidString = UUID().uuidString
         content.title = "No Touchy"
         content.body = "Please Don't Touch Your Face!"
-        content.sound = sound
+        //content.sound = sound
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (0.1), repeats: false)
         let request = UNNotificationRequest(identifier: uuidString,
                     content: content, trigger: trigger)
@@ -54,8 +54,8 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
         let content = UNMutableNotificationContent()
         let sound = UNNotificationSound.default
         let uuidString = UUID().uuidString
-        content.title = "No Touch"
-        content.body = "Your No Touch session is ending. Please start it again in the app if you need more time."
+        content.title = "NT Session Ending"
+        content.body = "Please start it again in the app if you need more time."
         content.sound = sound
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (0.1), repeats: false)
         let request = UNNotificationRequest(identifier: uuidString,
@@ -147,7 +147,7 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
             acceleration_z.setText(String(acc_z))
         
             if(isFaceTouching(acceleration: accelerometerData.acceleration)){
-                WKInterfaceDevice.current().play(.notification)
+                WKInterfaceDevice.current().play(.retry)
                 if(showNotification){
                     if(currentAlert != ""){
                         removeAlert(uuid: currentAlert)
@@ -193,6 +193,7 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
 
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         // Finish and clean up any tasks before the session ends.
+        WKInterfaceDevice.current().play(.success)
         showSessionEndingAlert()
         enableSwitch.setOn(false)
         print("Session ending soon", Date())
