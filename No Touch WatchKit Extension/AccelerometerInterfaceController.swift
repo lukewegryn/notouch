@@ -20,7 +20,7 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
     
     var currentAlert = ""
     
-    var selfCareSession: WKExtendedRuntimeSession?
+    var selfCareSession: WKExtendedRuntimeSession!
     var isSelfCareRunning = false
     
     @IBOutlet weak var acceleration_x: WKInterfaceLabel!
@@ -172,14 +172,15 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
         }
 
     @IBAction func toggleSession(_ value: Bool) {
-        selfCareSession = WKExtendedRuntimeSession()
         if !value {
-            selfCareSession!.invalidate()
+            selfCareSession.invalidate()
             isSelfCareRunning = false
         } else {
             // Begin session.
+            selfCareSession = WKExtendedRuntimeSession()
+            selfCareSession.delegate = self
+            selfCareSession.start()
             isSelfCareRunning = true
-            selfCareSession!.start()
         
         }
     }
@@ -187,16 +188,20 @@ class AccelerometerInterfaceController: WKInterfaceController, WKExtendedRuntime
 
     func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         // Track when your session starts.
+        print("Session started at", Date())
     }
 
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         // Finish and clean up any tasks before the session ends.
         showSessionEndingAlert()
+        enableSwitch.setOn(false)
+        print("Session ending soon", Date())
     }
         
     func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
         // Track when your session ends.
         // Also handle errors here.
         enableSwitch.setOn(false)
+        print("Session stopped at", Date())
     }
 }
